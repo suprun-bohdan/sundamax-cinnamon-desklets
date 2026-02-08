@@ -1,0 +1,56 @@
+.desklet,
+.desklet-with-borders,
+.desklet-with-borders-and-header {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.desklet-header {
+    padding: 0 !important;
+}
+
+.clock-desklet-container {
+    background-color: transparent;
+}
+
+.clock-card {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 6px 0;
+}
+
+.clock-card + .clock-card {
+    margin-top: 8px;
+}
+
+.clock-card-light {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #1a1a1a;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.clock-card-dark {
+    background-color: rgba(45, 45, 45, 0.85);
+    color: #e5e5e5;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.clock-city {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.clock-time {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: monospace;
+}
+
+.clock-date {
+    font-size: 11px;
+    opacity: 0.9;
+    margin-top: 6px;
+}

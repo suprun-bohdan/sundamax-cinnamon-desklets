@@ -1,0 +1,9 @@
+{
+    "uuid": "currencyRates@sundamax",
+    "name": "Currency Rates",
+    "description": "Global exchange rates via Frankfurter API. Configurable base currency and 3 target currencies. Update interval 1s–60min.",
+    "version": "1.0",
+    "max-instances": "5",
+    "author": "sundamax",
+    "prevent-decorations": true
+}

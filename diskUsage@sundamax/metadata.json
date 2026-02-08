@@ -1,0 +1,9 @@
+{
+  "uuid": "diskUsage@sundamax",
+  "name": "Disk Usage",
+  "description": "Displays disk usage for all mounted drives in Windows 11 style with dark/light theme.",
+  "version": "1.0",
+  "max-instances": "5",
+  "author": "sundamax",
+  "prevent-decorations": true
+}

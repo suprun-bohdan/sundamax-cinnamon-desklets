@@ -1,0 +1,10 @@
+/*
+*.md
+*.mdc
+!*@sundamax/
+!*@sundamax/**
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
+earthquakeTracker@sundamax/cache/

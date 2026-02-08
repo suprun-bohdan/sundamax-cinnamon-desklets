@@ -1,0 +1,1 @@
+{"uuid":"serverPing@sundamax","name":"Server Ping","description":"Monitor server availability by TCP port. Shows status lights (green/red) for each host:port.","version":"1.0","max-instances":"5","author":"sundamax","prevent-decorations":true}

@@ -1,0 +1,1 @@
+{"uuid":"issTracker@sundamax","name":"ISS Tracker","description":"Real-time ISS position on world map via wheretheiss.at API. Updates every 1-10 seconds.","version":"1.0","max-instances":"5","author":"sundamax","prevent-decorations":true}

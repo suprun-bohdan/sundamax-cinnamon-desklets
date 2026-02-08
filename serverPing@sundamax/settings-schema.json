@@ -1,0 +1,59 @@
+{
+    "layout1": {
+        "type": "layout",
+        "pages": ["page1"],
+        "page1": {
+            "type": "page",
+            "title": "Server Ping",
+            "sections": ["section0", "section1", "section2"]
+        },
+        "section0": {
+            "type": "section",
+            "title": "Appearance",
+            "keys": ["theme", "widthPercent"]
+        },
+        "section1": {
+            "type": "section",
+            "title": "Targets",
+            "keys": ["targets"]
+        },
+        "section2": {
+            "type": "section",
+            "title": "Update",
+            "keys": ["updateInterval", "timeoutSec"]
+        }
+    },
+    "theme": {
+        "type": "combobox",
+        "default": "dark",
+        "options": {"Dark": "dark", "Light": "light"},
+        "description": "Theme"
+    },
+    "widthPercent": {
+        "type": "combobox",
+        "default": "10",
+        "options": {"5%": "5", "8%": "8", "10%": "10", "12%": "12", "15%": "15", "20%": "20", "25%": "25", "30%": "30"},
+        "description": "Width (% of screen)"
+    },
+    "targets": {
+        "type": "list",
+        "description": "Targets to monitor",
+        "columns": [
+            {"id": "host", "title": "Host", "type": "string", "default": ""},
+            {"id": "port", "title": "Port", "type": "string", "default": ""}
+        ],
+        "default": [{"host": "176.108.126.111", "port": "8888"}]
+    },
+    "updateInterval": {
+        "type": "combobox",
+        "default": "30",
+        "options": {"1 second": "1", "5 seconds": "5", "10 seconds": "10", "15 seconds": "15", "30 seconds": "30", "45 seconds": "45", "60 seconds": "60", "120 seconds": "120"},
+        "description": "Check interval (seconds)"
+    },
+    "timeoutSec": {
+        "type": "combobox",
+        "default": "3",
+        "options": {"2 seconds": "2", "3 seconds": "3", "5 seconds": "5"},
+        "description": "Connection timeout"
+    }
+}

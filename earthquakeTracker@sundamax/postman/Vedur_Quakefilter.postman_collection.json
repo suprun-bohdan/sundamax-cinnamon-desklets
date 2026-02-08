@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+		"name": "Vedur.is Skjálftalísa - quakefilter",
+		"description": "Vedur.is Skjálftalísa quakefilter API. Data source: Veðurstofa Íslands (Icelandic Meteorological Office), SIL seismic network.\n\nSee API.md in the desklet folder for full documentation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "noauth"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.vedur.is/skjalftalisa/v1"
+		},
+		{
+			"key": "iceland_area",
+			"value": "[[67.5,-25],[67.5,-12],[62.5,-12],[62.5,-25]]"
+		},
+		{
+			"key": "start_time",
+			"value": "2026-02-01 00:00:00"
+		},
+		{
+			"key": "end_time",
+			"value": "2026-02-02 00:00:00"
+		}
+	],
+	"item": [
+		{
+			"name": "Iceland 24h, mag ≥ 0.5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start_time\": \"2026-02-06 00:00:00\",\n  \"end_time\": \"2026-02-07 00:00:00\",\n  \"size_min\": 0.5,\n  \"area\": [[67.5, -25.0], [67.5, -12.0], [62.5, -12.0], [62.5, -25.0]],\n  \"event_type\": [\"qu\"],\n  \"originating_system\": [\"SIL picks\", \"SIL aut.mag\"],\n  \"magnitude_preference\": [\"Mlw\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/quakefilter",
+					"host": ["{{base_url}}"],
+					"path": ["quakefilter"]
+				},
+				"description": "API.md Example 1: Iceland coverage, last 24 hours, magnitude ≥ 0.5"
+			}
+		},
+		{
+			"name": "Strong only (≥ 2.0), 7 days",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start_time\": \"2026-01-31 00:00:00\",\n  \"end_time\": \"2026-02-07 00:00:00\",\n  \"size_min\": 2.0,\n  \"area\": [[67.5, -25.0], [67.5, -12.0], [62.5, -12.0], [62.5, -25.0]],\n  \"event_type\": [\"qu\"],\n  \"originating_system\": [\"SIL picks\", \"SIL aut.mag\"],\n  \"magnitude_preference\": [\"Mlw\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/quakefilter",
+					"host": ["{{base_url}}"],
+					"path": ["quakefilter"]
+				},
+				"description": "API.md Example 2: Strong earthquakes only (≥ 2.0), 7-day window"
+			}
+		},
+		{
+			"name": "All events, last 1 hour",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const now = new Date();",
+							"const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000);",
+							"const pad = n => n < 10 ? \"0\" + n : \"\" + n;",
+							"const fmt = d => `${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}`;",
+							"pm.collectionVariables.set(\"start_time\", fmt(oneHourAgo));",
+							"pm.collectionVariables.set(\"end_time\", fmt(now));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start_time\": \"{{start_time}}\",\n  \"end_time\": \"{{end_time}}\",\n  \"size_min\": 0,\n  \"area\": [[67.5, -25.0], [67.5, -12.0], [62.5, -12.0], [62.5, -25.0]],\n  \"event_type\": [\"qu\"],\n  \"originating_system\": [\"SIL picks\", \"SIL aut.mag\"],\n  \"magnitude_preference\": [\"Mlw\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/quakefilter",
+					"host": ["{{base_url}}"],
+					"path": ["quakefilter"]
+				},
+				"description": "API.md Example 3: All events (mag ≥ 0) in the last hour. Pre-request script sets start_time and end_time in UTC."
+			}
+		},
+		{
+			"name": "Minimal request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start_time\": \"2026-02-01 00:00:00\",\n  \"end_time\": \"2026-02-02 00:00:00\",\n  \"size_min\": 0,\n  \"area\": [[67.5, -25.0], [67.5, -12.0], [62.5, -12.0], [62.5, -25.0]]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/quakefilter",
+					"host": ["{{base_url}}"],
+					"path": ["quakefilter"]
+				},
+				"description": "API.md Example 4: Minimal request with only required fields (start_time, end_time, size_min, area)"
+			}
+		},
+		{
+			"name": "Error test: size_min as string",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"start_time\": \"2026-02-01 00:00:00\",\n  \"end_time\": \"2026-02-02 00:00:00\",\n  \"size_min\": \"1.0\",\n  \"area\": [[67.5, -25.0], [67.5, -12.0], [62.5, -12.0], [62.5, -25.0]]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/quakefilter",
+					"host": ["{{base_url}}"],
+					"path": ["quakefilter"]
+				},
+				"description": "Expects 400 Bad Request. size_min must be number, not string."
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Invalid size_min message\", function () {",
+							"    const body = pm.response.json();",
+							"    pm.expect(body.detail).to.include(\"size_min\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			]
+		}
+	]
+}

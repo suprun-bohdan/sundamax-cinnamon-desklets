@@ -1,0 +1,9 @@
+{
+  "uuid": "worldClock@sundamax",
+  "name": "World Clock",
+  "description": "Digital clock for selected timezone",
+  "version": "1.0",
+  "max-instances": "5",
+  "author": "sundamax",
+  "prevent-decorations": true
+}

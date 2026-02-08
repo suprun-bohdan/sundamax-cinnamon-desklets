@@ -1,0 +1,1 @@
+{"uuid":"auroraTracker@sundamax","name":"Aurora Tracker","description":"Aurora forecast and Kp index on world map via NOAA SWPC API. OVATION heatmap, planetary Kp.","version":"1.0","max-instances":"5","author":"sundamax","prevent-decorations":true}

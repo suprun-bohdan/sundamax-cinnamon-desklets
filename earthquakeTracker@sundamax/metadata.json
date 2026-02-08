@@ -1,0 +1,1 @@
+{"uuid":"earthquakeTracker@sundamax","name":"Earthquake Tracker","description":"Iceland earthquake monitoring via Skjálftalísa API (vedur.is). Data by Icelandic Met Office. CC BY-SA 4.0.","version":"1.0","max-instances":"5","author":"sundamax","prevent-decorations":true}

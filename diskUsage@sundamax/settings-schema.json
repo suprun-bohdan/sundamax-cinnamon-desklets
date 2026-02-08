@@ -1,0 +1,7 @@
+{
+    "head0": {"type": "header", "description": "Appearance"},
+    "theme": {"type": "combobox", "default": "dark", "options": {"Dark": "dark", "Light": "light"}, "description": "Theme"},
+    "widthPercent": {"type": "combobox", "default": "10", "options": {"5%": "5", "8%": "8", "10%": "10", "12%": "12", "15%": "15", "20%": "20", "25%": "25", "30%": "30"}, "description": "Width (% of screen)"},
+    "updateInterval": {"type": "scale", "default": 5, "min": 1, "max": 60, "step": 1, "description": "Update interval (seconds)"},
+    "excludeVirtual": {"type": "switch", "default": true, "description": "Exclude tmpfs, squashfs"}
+}

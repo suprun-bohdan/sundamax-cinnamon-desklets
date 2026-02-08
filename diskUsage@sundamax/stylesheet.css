@@ -1,0 +1,71 @@
+.desklet,
+.desklet-with-borders,
+.desklet-with-borders-and-header {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.desklet-header {
+    padding: 0 !important;
+}
+
+.disk-desklet-container {
+    background-color: transparent;
+}
+
+.disk-desklet-title {
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.disk-card {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 6px 0;
+}
+
+.disk-card-light {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #1a1a1a;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.disk-card-dark {
+    background-color: rgba(45, 45, 45, 0.85);
+    color: #e5e5e5;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.disk-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.disk-card-value {
+    font-size: 10px;
+    opacity: 0.9;
+}
+
+.disk-progress {
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 6px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.disk-progress-light .disk-progress {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.disk-progress-dark .disk-progress {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.disk-progress-bar {
+    height: 6px;
+    border-radius: 3px;
+}
